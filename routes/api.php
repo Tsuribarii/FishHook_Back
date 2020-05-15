@@ -55,6 +55,7 @@ Route::get('/myedit', 'MypageController@edit');
 Route::post('/myupdate', 'MypageController@update');
 Route::get('/mycheck', 'MypageController@checkshow');
 Route::get('/status', 'MypageController@status');
+Route::get('/apply', 'MypageController@apply');
 
 //커뮤니티
 Route::get('/list', 'BoardController@index')->name('list');
