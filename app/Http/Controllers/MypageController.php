@@ -70,6 +70,38 @@ class MypageController extends Controller
         return response()->json($user);
     }
 
+    // 승인 전 예약 리스트
+    public function apply()
+    {
+        if(Auth::user()->roles=='2'){
+            
+            // ship 테이블에서 ship_id 데려옴
+            $ship_id = DB::table('ship_owners')
+                ->join('ships','ship_owners.id','=','ships.owner_id')
+                ->where('ship_owners.user_id',Auth::id())
+                ->select('ships.id')
+                ->get();
+            // return $ship_id;
+
+            //where 넣을 수 있게 배열로
+            $collection = collect($ship_id);
+            $plucked = $collection->pluck('id');
+            $plucked->all();
+            // return $plucked;
+
+            $rental = DB::table('ship_rentals')
+                ->whereIn('ship_id',$plucked)
+                //승인된 선박만
+                ->where('ship_rentals.confirm',0)
+                ->join('users','ship_rentals.user_id','=','users.id')
+                ->select('ship_rentals.id','ship_id','departure_date','number_of_people','ship_rentals.created_at','users.name')
+                ->get();
+            
+            return response()->json($rental);
+        }
+    }
+
+    //승인 후 예약 현황
     public function checkshow()
     {
         //판매자의 예약현황 (예약정보, 유저정보)
