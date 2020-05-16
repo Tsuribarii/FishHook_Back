@@ -7,6 +7,8 @@ use App\Image;
 use Illuminate\Support\Facades\DB;
 use Storage;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Aws\S3\S3Client;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 class ImageController extends Controller
