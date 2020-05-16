@@ -1656,7 +1656,7 @@
                 "ext-json": "*",
                 "php": "^7.1.8 || ^8.0",
                 "symfony/polyfill-mbstring": "^1.0",
-                "symfony/translation": "^3.4 || ^4.0 || ^5.0"
+                "symfony/translation": "^3.0"
             },
             "require-dev": {
                 "doctrine/orm": "^2.7",
@@ -3303,7 +3303,7 @@
                 "symfony/http-client": "<5.0",
                 "symfony/mailer": "<5.0",
                 "symfony/messenger": "<5.0",
-                "symfony/translation": "<5.0",
+                "symfony/translation": "<3.0",
                 "symfony/twig-bridge": "<5.0",
                 "symfony/validator": "<5.0",
                 "twig/twig": "<2.4"
@@ -3324,7 +3324,7 @@
                 "symfony/process": "^4.4|^5.0",
                 "symfony/routing": "^4.4|^5.0",
                 "symfony/stopwatch": "^4.4|^5.0",
-                "symfony/translation": "^4.4|^5.0",
+                "symfony/translation": "^3.0",
                 "symfony/translation-contracts": "^1.1|^2",
                 "twig/twig": "^2.4|^3.0"
             },
@@ -4240,7 +4240,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v5.0.8",
+            "version": "v3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
