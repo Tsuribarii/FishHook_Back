@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Image;
 use Storage;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 class ImageController extends Controller
 {
     public function image()
@@ -27,7 +29,9 @@ class ImageController extends Controller
             $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
          }
+         $user = JWTAuth::parseToken()->authenticate();
          Image::create([
+            'user_id'   => $user->id,
             'filename'   => $name,
             'url' => $url
          ]);
