@@ -86,7 +86,7 @@ Route::post('/rank/store', 'RankController@store');
 
 Route::post('/image/store', 'ImageController@store');
 Route::get('/image', 'ImageController@image');
-
+Route::get('/fishname', 'ImageController@fish_name');
 Route::get('/rank/fish_name','RankController@fish_name');
 
 //mqtt
