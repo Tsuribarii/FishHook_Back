@@ -22,7 +22,7 @@ class ImageController extends Controller
         );
     }
     public function fish_name() {
-        $output = shell_exec("python C:/Users/PC/jekim/rockfish/rockfish/main.py");
+        $output = shell_exec("python /home/ubuntu/python/rockfish/rockfish/main.py");
         $a = strpos($output, '"');
         $result = substr($output,$a+1,-2);
         return $result;
@@ -39,7 +39,6 @@ class ImageController extends Controller
          }
          $fish_name = $this -> fish_name();
          $user = JWTAuth::parseToken()->authenticate();
-
          Image::create([
             'user_id'   => $user->id,
             'fish_name' => $fish_name,
