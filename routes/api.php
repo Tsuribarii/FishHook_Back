@@ -28,6 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::post('auth/login', 'AuthController@login'); 
     Route::get('auth/profile', 'AuthController@getAuthenticatedUser');
 
+    // Route::get('auth/login',['middleware' => 'force.https', 'as' => 'auth.login', 'uses' => 'AuthController@login']);
     //예약
     Route::post('/ownerstore', 'ShipController@ownerstore');
     Route::post('/shipstore', 'ShipController@shipstore');
@@ -90,4 +91,4 @@ Route::get('/image/{image}', 'ImageController@show');
 Route::get('/rank/fish_name','RankController@fish_name');
 
 //mqtt
-Route::post('pub', 'MqttController@SendMsgViaMqtt');
+Route::post('pub', ['middleware' => 'force.https', 'as' => pub, 'uses' => 'MqttController@SendMsgViaMqtt']);
