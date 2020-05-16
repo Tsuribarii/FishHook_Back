@@ -84,9 +84,8 @@ Route::get('/rank', 'RankController@rank');
 Route::delete('/rank/delete/{id}', 'RankController@destroy');
 Route::post('/rank/store', 'RankController@store');
 
-Route::get('/image', 'ImageController@create');
-Route::post('/image', 'ImageController@store');
-Route::get('/image/{image}', 'ImageController@show');
+Route::post('/image/store', 'ImageController@store');
+Route::get('/image', 'ImageController@image');
 
 Route::get('/rank/fish_name','RankController@fish_name');
 

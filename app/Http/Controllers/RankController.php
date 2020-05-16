@@ -19,9 +19,6 @@ class RankController extends Controller
     public function __construct(Request $request) {
         $this->request = $request;
     }
-    public function create(){
-        return view('images.create');
-    }
     public function rank()
     {
         $rank_of_fish = DB::table('rankings')

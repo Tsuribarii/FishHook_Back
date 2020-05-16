@@ -21,7 +21,6 @@ class CreateRankingsTable extends Migration
             
             $table->string('fish_name')->comment("어종 이름");
             $table->integer('length')->comment("길이");
-            $table->string('photo')->comment("사진");
             $table->string('location')->comment("위치");
             $table->timestamps();
         });
