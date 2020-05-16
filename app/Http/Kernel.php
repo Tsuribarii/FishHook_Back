@@ -14,13 +14,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \App\Http\Middleware\CORS::class,
+        // \App\Http\Middleware\CORS::class,
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // \App\Http\Middleware\ForceHttps::class, // 모든 컨텐츠에 대해 Https 로 제공
     ];
 
     /**
@@ -53,7 +54,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'cors'=> \ App \ Http \ Middleware \ Cors :: class,
+        // 'cors'=> \ App \ Http \ Middleware \ Cors :: class,
         'jwt.auth'=> \ Tymon \ JWTAuth \ Middleware \ GetUserFromToken :: class, 
         'jwt.refresh'=> \ Tymon \ JWTAuth \ Middleware \ RefreshToken :: class, 
         'auth' => \App\Http\Middleware\Authenticate::class,
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        // 'force.https' => \App\Http\Middleware\ForceHttps::class,
     ];
 }
