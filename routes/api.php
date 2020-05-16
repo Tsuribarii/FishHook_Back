@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/home', 'HomeController@index')->name('home');
 
 //인증
-Route::group(['middleware' => 'cors'], function () {
+// Route::group(['middleware' => 'cors'], function () {
     
     Route::post('auth/register', 'AuthController@register');
     Route::post('auth/login', 'AuthController@login'); 
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('/shipshow/{id}', 'ShipController@shipshow');
     Route::post('/confirm', 'ShipController@Confirm');
     
-});
+// });
 
 //인증된 사용자면 라우트 접근 가능
 Route::group([ 'middleware'=> 'jwt.auth'], function () { 
@@ -91,4 +91,4 @@ Route::get('/image/{image}', 'ImageController@show');
 Route::get('/rank/fish_name','RankController@fish_name');
 
 //mqtt
-Route::post('pub', ['middleware' => 'force.https', 'as' => pub, 'uses' => 'MqttController@SendMsgViaMqtt']);
+Route::post('pub', 'MqttController@SendMsgViaMqtt');
