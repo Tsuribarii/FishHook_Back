@@ -31,7 +31,6 @@ class ImageController extends Controller
         return $result;
     }
     public function store(Request $request){
-        var_dump($request->file('image'));
         $this->validate($request, ['image' => 'required|image']);
         if($request->hasfile('image'))
          {
