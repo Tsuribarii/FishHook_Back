@@ -31,10 +31,12 @@ class ImageController extends Controller
         return $result;
     }
     public function store(Request $request){
+        var_dump($request->file('image'));
         $this->validate($request, ['image' => 'required|image']);
         if($request->hasfile('image'))
          {
             $file = $request->file('image');
+            var_dump($file);
             $name= time().$file->getClientOriginalName();
             $filePath = 'image/' . $name;
             $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
