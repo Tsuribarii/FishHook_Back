@@ -36,14 +36,9 @@ class ImageController extends Controller
          {
             $file = $request->file('image');
             $name= time().$file->getClientOriginalName();
-            var_dump("name--------" . $name);
-
             $filePath = 'image/' . $name;
-            var_dump("filePath--------" . $filePath);
-
             $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
-            var_dump("url---------".$url);
-            Storage::disk('s3')->put($filePath, file_get_contents($file));
+            // Storage::disk('s3')->put($filePath, file_get_contents($file));
          }
          $fish_name = $this -> fish_name();
          $user = JWTAuth::parseToken()->authenticate();
