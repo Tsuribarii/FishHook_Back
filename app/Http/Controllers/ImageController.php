@@ -9,6 +9,7 @@ use Storage;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+
 class ImageController extends Controller
 {
     public function image()
