@@ -12,8 +12,6 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Aws\S3\S3Client;
 use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
-include __DIR__ . '/vendor/autoload.php';
-
 $client = new S3Client([
     'credentials' => [
         'key'    => 'AKIA5XMMML6ETA5M63NP',
