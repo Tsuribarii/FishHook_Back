@@ -29,22 +29,22 @@ class ImageController extends Controller
         return $result;
     }
     public function store(Request $request){
-        // $this->validate($request, ['image' => 'required|image']);
-        // if($request->hasfile('image'))
-        //  {
-        //     $file = $request->file('image');
-        //     $name= time().$file->getClientOriginalName();
-        //     $filePath = 'image/' . $name;
-        //     $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
-        //     Storage::disk('s3')->put($filePath, file_get_contents($file));
-        //  }
+        $this->validate($request, ['image' => 'required|image']);
+        if($request->hasfile('image'))
+         {
+            $file = $request->file('image');
+            $name= time().$file->getClientOriginalName();
+            $filePath = 'image/' . $name;
+            $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
+         }
          $fish_name = $this -> fish_name();
          $user = JWTAuth::parseToken()->authenticate();
          Image::create([
             'user_id'   => $user->id,
             'fish_name' => $fish_name,
-            // 'filename'   => $name,
-            // 'url' => $url
+            'filename'   => $name,
+            'url' => $url
          ]);
     }
 }
