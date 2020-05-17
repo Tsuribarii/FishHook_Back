@@ -16,8 +16,9 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "league/flysystem-aws-s3-v3": "~1.0",
+        "october/drivers-plugin": "^1.0@dev",
         "pusher/pusher-php-server": "~3.0",
-        "rackspace/php-opencloud": "dev-master",
+        "rackspace/php-opencloud": "1.16.x-dev",
         "salmanzafar/laravel-mqtt": "^1.0",
         "tymon/jwt-auth": "dev-develop"
     },
