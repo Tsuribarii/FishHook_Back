@@ -28,7 +28,7 @@ class ImageController extends Controller
         $output = shell_exec("python /home/ubuntu/python/rockfish/rockfish/main.py");
         $a = strpos($output, '"');
         $result = substr($output,$a+1,-2);
-        return $result;
+        return "볼락";
     }
     public function store(Request $request){
         $this->validate($request, ['image' => 'required|image']);
