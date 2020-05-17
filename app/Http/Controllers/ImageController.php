@@ -9,7 +9,21 @@ use Storage;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Aws\S3\S3Client;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
+include __DIR__ . '/vendor/autoload.php';
+
+$client = new S3Client([
+    'credentials' => [
+        'key'    => 'AKIA5XMMML6ETA5M63NP',
+        'secret' => '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'
+    ],
+    'region' => 'ap-northeast-2',
+]);
+
+$adapter = new AwsS3Adapter($client, 'awsfishhook');
+$filesystem = new Filesystem($adapter);
 class ImageController extends Controller
 {
     public function image()
