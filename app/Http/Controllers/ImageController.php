@@ -35,10 +35,14 @@ class ImageController extends Controller
         if($request->hasfile('image'))
          {
             $file = $request->file('image');
-            var_dump($file);
             $name= time().$file->getClientOriginalName();
+            var_dump("name--------" . $name);
+
             $filePath = 'image/' . $name;
+            var_dump("filePath--------" . $filePath);
+
             $url = 'https://awsfishhook.s3.ap-northeast-2.amazonaws.com/' . $filePath;
+            var_dump("url---------".$url);
             Storage::disk('s3')->put($filePath, file_get_contents($file));
          }
          $fish_name = $this -> fish_name();
