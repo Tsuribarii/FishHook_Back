@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2dbdcb4a69e29dfed671bb68a512e38",
+    "content-hash": "37eb220c3c61ae02eec3124b75f6879f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2477,16 +2477,16 @@
         },
         {
             "name": "rackspace/php-opencloud",
-            "version": "dev-master",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rackspace/php-opencloud.git",
-                "reference": "062bf8bb3432c6e0f68e21a2f6dd5f02f2fc19d7"
+                "reference": "d6b71feed7f9e7a4b52e0240a79f06473ba69c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rackspace/php-opencloud/zipball/062bf8bb3432c6e0f68e21a2f6dd5f02f2fc19d7",
-                "reference": "062bf8bb3432c6e0f68e21a2f6dd5f02f2fc19d7",
+                "url": "https://api.github.com/repos/rackspace/php-opencloud/zipball/d6b71feed7f9e7a4b52e0240a79f06473ba69c8c",
+                "reference": "d6b71feed7f9e7a4b52e0240a79f06473ba69c8c",
                 "shasum": ""
             },
             "require": {
@@ -2530,7 +2530,7 @@
                 "rackspace",
                 "swift"
             ],
-            "time": "2016-01-29T14:18:21+00:00"
+            "time": "2016-01-29T10:34:57+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -6812,7 +6812,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "rackspace/php-opencloud": 20,
         "tymon/jwt-auth": 20
     },
     "prefer-stable": true,
