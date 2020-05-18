@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "pusher/pusher-php-server": "~3.0",
+        "rackspace/php-opencloud": "1.16.x-dev",
         "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
