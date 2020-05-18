@@ -28,6 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::post('auth/login', 'AuthController@login'); 
     Route::get('auth/profile', 'AuthController@getAuthenticatedUser');
 
+    // Route::get('auth/login',['middleware' => 'force.https', 'as' => 'auth.login', 'uses' => 'AuthController@login']);
     //예약
     Route::post('/ownerstore', 'ShipController@ownerstore');
     Route::post('/shipstore', 'ShipController@shipstore');
@@ -55,6 +56,7 @@ Route::get('/myedit', 'MypageController@edit');
 Route::post('/myupdate', 'MypageController@update');
 Route::get('/mycheck', 'MypageController@checkshow');
 Route::get('/status', 'MypageController@status');
+Route::get('/apply', 'MypageController@apply');
 
 //커뮤니티
 Route::get('/list', 'BoardController@index')->name('list');
@@ -82,6 +84,9 @@ Route::get('/rank', 'RankController@rank');
 Route::delete('/rank/delete/{id}', 'RankController@destroy');
 Route::post('/rank/store', 'RankController@store');
 
+Route::post('/image/store', 'ImageController@store');
+Route::get('/image', 'ImageController@image');
+Route::get('/fishname', 'ImageController@fish_name');
 Route::get('/rank/fish_name','RankController@fish_name');
 
 //mqtt
