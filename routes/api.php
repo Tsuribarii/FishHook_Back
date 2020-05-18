@@ -22,12 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/home', 'HomeController@index')->name('home');
 
 //인증
-Route::group(['middleware' => 'cors'], function () {
+// Route::group(['middleware' => 'cors'], function () {
     
     Route::post('auth/register', 'AuthController@register');
     Route::post('auth/login', 'AuthController@login'); 
     Route::get('auth/profile', 'AuthController@getAuthenticatedUser');
 
+    // Route::get('auth/login',['middleware' => 'force.https', 'as' => 'auth.login', 'uses' => 'AuthController@login']);
     //예약
     Route::post('/ownerstore', 'ShipController@ownerstore');
     Route::post('/shipstore', 'ShipController@shipstore');
@@ -36,7 +37,7 @@ Route::group(['middleware' => 'cors'], function () {
     Route::get('/shipshow/{id}', 'ShipController@shipshow');
     Route::post('/confirm', 'ShipController@Confirm');
     
-});
+// });
 
 //인증된 사용자면 라우트 접근 가능
 Route::group([ 'middleware'=> 'jwt.auth'], function () { 
@@ -70,14 +71,23 @@ Route::get('/delete/{id}', 'BoardController@destroy');
 Route::post('/storeshow', 'StoreController@show');
 
 //날씨 정보
-Route::get('/weather', 'WeatherInformationsController@weather');
+Route::get('/weather/{id}', 'WeatherInformationsController@weather');
 
 //물때 정보
-Route::get('/tide', 'TideInformationsController@tide');
-Route::get('/tider', 'TideInformationsController@tide_json');
+Route::get('/tide/{id}', 'TideInformationsController@tide');
+Route::post('/tide/index', 'TideLocationController@index');
 //낚시터 정보
 Route::get('/fishing', 'FishingPlacesController@fishing');
 
 //랭킹 정보
 Route::get('/rank', 'RankController@rank');
 Route::delete('/rank/delete/{id}', 'RankController@destroy');
+Route::post('/rank/store', 'RankController@store');
+
+Route::post('/image/store', 'ImageController@store');
+Route::get('/image', 'ImageController@image');
+Route::get('/fishname', 'ImageController@fish_name');
+Route::get('/rank/fish_name','RankController@fish_name');
+
+//mqtt
+Route::post('pub', 'MqttController@SendMsgViaMqtt');
