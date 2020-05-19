@@ -20,6 +20,7 @@ class CreateTideInformationsTable extends Migration
             $table->string('date')->comment("날짜");
             $table->string('hide_tide')->comment("물때");
             $table->timestamps();
+            
         });
     }
 
