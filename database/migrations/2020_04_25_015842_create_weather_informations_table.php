@@ -17,7 +17,7 @@ class CreateWeatherInformationsTable extends Migration
         //location,time,weather_status,temperature,wind_direction,wind_speed,wave_height,wave_direction,wave_period,humidity
             $table->bigIncrements('id')->comment("날씨 번호");
             $table->string('location')->comment("위치");
-            $table->foreign('location')->references('id')->on('tide_locations');
+            // $table->foreign('location')->references('id')->on('tide_locations');
             $table->string('time')->comment("시간");
             $table->string('weather_status')->comment("날씨상태");
             $table->string('temperature')->comment("온도");
